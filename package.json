@@ -1,0 +1,58 @@
+{
+  "name": "katasjehe",
+  "version": "1.0.0",
+  "dependencies": {
+    "@babel/runtime": "^7.9.2",
+    "@testing-library/jest-dom": "^4.2.4",
+    "babel": "^6.23.0",
+    "chai": "^4.2.0",
+    "mocha": "^8.1.3"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.11.5",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/register": "^7.8.6",
+    "chai": "^4.2.0",
+    "mocha": "^8.1.1",
+    "mochawesome": "^6.1.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/user-event": "^7.1.2"
+  },
+  "babel": {
+    "plugins": [
+      [
+        "@babel/plugin-transform-runtime",
+        {
+          "regenerator": true
+        }
+      ]
+    ],
+    "presets": [
+      "@babel/env"
+    ]
+  },
+  "mocha": {
+    "extension": [
+      "js"
+    ],
+    "package": "./package.json",
+    "reporter": "spec",
+    "slow": 75,
+    "timeout": 2000,
+    "ui": "bdd",
+    "spec": "test/**/*.spec.js",
+    "watch-files": [
+      "src/**/*.js",
+      "test/**/*.js"
+    ],
+    "watch-ignore": [
+      "node_modules"
+    ],
+    "require": "@babel/register",
+    "exit": true
+  }
+}
