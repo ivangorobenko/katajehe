@@ -1,15 +1,12 @@
+const {satellitesStoreForAsyncAwait: satellitesStore} = require("./satellitesStoreForAsyncAwait");
 const {loadSatelliteToStore} = require("./loadSatelliteToStore");
-const {satellitesStore} = require("./satellitesStore");
 
-const loadAllSatellitesWithPromises = async () => {
+module.exports.loadAllSatellitesWithAsyncAwait = async () => {
     try {
-        await loadSatelliteToStore("TEST");
-        await loadSatelliteToStore("tLFMH");
-        await loadSatelliteToStore("tLFCR");
-        console.log(satellitesStore);
+        satellitesStore.push(await loadSatelliteToStore("TEST"));
+        satellitesStore.push(await loadSatelliteToStore("tLFMH"));
+        satellitesStore.push(await loadSatelliteToStore("tLFCR"));
     } catch (error) {
         console.log(`un truc s'est mal passé ${error}`);
     }
 };
-
-loadAllSatellitesWithPromises();

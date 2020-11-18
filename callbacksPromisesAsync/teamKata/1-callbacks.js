@@ -1,14 +1,14 @@
-const {loadSatelliteToStore} = require("./loadSatelliteToStore");
-const {satellitesStore} = require("./satellitesStore");
+const {loadSatelliteToStoreCallbacked} = require("./loadSatelliteToStore");
+const {satellitesStoreForCallback: satellitesStore} = require("./satellitesStoreForCallback");
 
-const loadSatellitesWithCallbacks = () => {
-    loadSatelliteToStore("TEST", () =>
-        loadSatelliteToStore("tLFMH", () =>
-            loadSatelliteToStore("tLFCR", () => {
-                console.log(satellitesStore);
-            })
-        )
-    );
+module.exports.loadAllSatellitesWithCallbacks = () => {
+    loadSatelliteToStoreCallbacked("TEST", satellite => {
+        satellitesStore.push(satellite);
+        return loadSatelliteToStoreCallbacked("tLFMH", satellite => {
+            satellitesStore.push(satellite);
+            return loadSatelliteToStoreCallbacked("tLFCR", satellite => {
+                satellitesStore.push(satellite);
+            });
+        });
+    });
 };
-
-loadSatellitesWithCallbacks();
