@@ -6,7 +6,7 @@ module.exports.loadSatelliteToStoreCallbacked = (satellite, callback) =>
 
         .then(result => result.data)
         .then(satellite => {
-            if (callback) callback(satellite);
+            if (callback) callback(undefined, satellite);
         })
         .catch(error => console.log(`un truc s'est mal passé ${error}`));
 
