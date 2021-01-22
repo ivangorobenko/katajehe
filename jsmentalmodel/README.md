@@ -118,4 +118,8 @@ En revanche si celle-ci n'est pas intentionnelle :
 - Faire des fonctions pures : qui ne modifie l'argument passé en paramètre et en sort nouveau en sortie.
 Par exemple reducer de redux.
 
+NB : plus d'infos dans les mails reçus de coursus Justjavascript de Dan Abramov
+--
+
+
 
